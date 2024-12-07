@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.0 on win32)" generated="2024-12-07T00:38:42.073850" rpa="false" schemaversion="5">
+<suite id="s1" name="Add To Cart Test" source="C:\Users\HADIL\Desktop\test website\add_to_cart_test.robot">
+<test id="s1-t1" name="Ajouter Un Produit Au Panier" line="12">
+<kw name="Ouvrir Le Navigateur">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:42.613807" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-07T00:38:42.613807" elapsed="3.403517"/>
+</kw>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2024-12-07T00:38:42.611808" elapsed="3.406588"/>
+</kw>
+<kw name="Se Connecter">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:46.023324" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-07T00:38:46.021353" elapsed="0.288659"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:46.311010" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-07T00:38:46.310012" elapsed="0.215266"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:46.526279" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-07T00:38:46.525278" elapsed="0.283955"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2024-12-07T00:38:46.019326" elapsed="0.789907"/>
+</kw>
+<kw name="Ajouter Le Produit Au Panier">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:46.812873" level="INFO">Clicking button 'xpath=//div[text()="Sauce Labs Backpack"]/ancestor::div[@class="inventory_item"]//button[text()="Add to cart"]'.</msg>
+<arg>xpath=//div[text()="${PRODUCT_NAME}"]/ancestor::div[@class="inventory_item"]//button[text()="Add to cart"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-07T00:38:46.811879" elapsed="0.206900"/>
+</kw>
+<doc>Ce mot-clé ajoute un produit au panier</doc>
+<status status="PASS" start="2024-12-07T00:38:46.810872" elapsed="0.208755"/>
+</kw>
+<kw name="Vérifier Le Panier">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:47.022036" level="INFO">Clicking link 'class=shopping_cart_link'.</msg>
+<arg>class=shopping_cart_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-07T00:38:47.020809" elapsed="0.128257"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>class=cart_list</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-07T00:38:47.150266" elapsed="0.037702"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-12-07T00:38:47.205969" level="INFO">${items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="a3a014a473cd596a5f7a3411d62b8af3", element="f.68C51217F58BEFCF3BA01D76A580D684.d.8D951DA27331826B2D9C5670B670F636.e.41")&gt;]</msg>
+<var>${items}</var>
+<arg>class=cart_item</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-12-07T00:38:47.187968" elapsed="0.018001"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-12-07T00:38:47.205969" level="INFO">Length is 1.</msg>
+<msg time="2024-12-07T00:38:47.206967" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>${items}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-12-07T00:38:47.205969" elapsed="0.000998"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-12-07T00:38:47.206967" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${count}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-12-07T00:38:47.206967" elapsed="0.001004"/>
+</kw>
+<doc>Ce mot-clé vérifie si le panier contient le produit ajouté</doc>
+<status status="PASS" start="2024-12-07T00:38:47.020626" elapsed="0.187578"/>
+</kw>
+<kw name="Fermer Le Navigateur">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-12-07T00:38:47.208970" elapsed="2.282603"/>
+</kw>
+<status status="PASS" start="2024-12-07T00:38:47.208970" elapsed="2.283550"/>
+</kw>
+<doc>Ce test vérifie si un produit peut être ajouté au panier sur www.saucedemo.com</doc>
+<status status="PASS" start="2024-12-07T00:38:42.609814" elapsed="6.883804"/>
+</test>
+<status status="PASS" start="2024-12-07T00:38:42.078891" elapsed="7.420628"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Add To Cart Test">Add To Cart Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
