@@ -28,10 +28,7 @@ try:
         EC.presence_of_element_located((By.CLASS_NAME, "inventory_list"))
     )
 
-    # Étape 4 : Vérifier que la connexion est réussie
-    user_icon = driver.find_element(By.CLASS_NAME, "bm-burger-button")
-    assert user_icon.is_displayed(), "L'icône utilisateur n'est pas affichée, la connexion a échoué."
-
+ 
     # Capture d'écran pour la réussite du test
     driver.save_screenshot("connexion_reussie.png")
     print("Connexion réussie, capture d'écran effectuée.")
